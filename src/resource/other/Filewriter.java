@@ -1,13 +1,14 @@
 package src.resource.other;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Filewriter {
     protected String name_of_file;
     protected java.io.File file;
-    protected final String file_was_created = "The file was successfully created";
-    protected final String the_file_exists = "The file has been overwritten";
+    protected final String file_was_created = " File created";
+    protected final String the_file_exists = " File overwritten";
     protected final String save_error = "Error writing to the file";
     protected  final String save_completed = "The save was successful";
 
@@ -15,8 +16,9 @@ public class Filewriter {
         this.name_of_file = name_of_file;
     }
 
-    protected void CreatingFile(String name_of_file){
-        this.file = new java.io.File(name_of_file);
+    protected void CreatingFile(String file_name){
+        this.file = new File(file_name);
+
         try {
             if (this.file.exists()) System.out.println(the_file_exists);
             else {boolean created = this.file.createNewFile();

@@ -1,4 +1,4 @@
-package src.Lesson3.practice;
+package src.Lesson3.practice.test;
 
 public class Build extends Buildings{
     Build(String name,int floors, boolean type) {

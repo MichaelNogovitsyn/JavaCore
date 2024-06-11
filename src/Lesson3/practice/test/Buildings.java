@@ -1,4 +1,4 @@
-package src.Lesson3.practice;
+package src.Lesson3.practice.test;
 
 import java.util.Random;
 

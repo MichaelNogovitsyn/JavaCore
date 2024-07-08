@@ -23,7 +23,6 @@ public class Main {
                 "5",  400, LocalDate.of(2000,11,20));
         Manager manager1 = new Manager("Kozlov","Kostya","Sergeevich","New", "5",  600, LocalDate.of(2000,11,20));
 
-
         Personal [] personals = {worker,worker2,worker3,worker4,worker5,manager1};
         System.out.println(Arrays.toString(personals));
 

@@ -28,6 +28,6 @@ public class Product {
     @Override
     public String toString() {
         return "Product{"+ title +
-                ", " +  price +"}";
+                ", price=" +  price +"}";
     }
 }

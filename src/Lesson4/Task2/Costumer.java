@@ -3,12 +3,17 @@ package src.Lesson4.Task2;
 public class Costumer {
     private  String name;
     private  int age;
-    public   String ptone;
+    public   String phone;
+    private String gender;
+    public  enum Gen {male, famale};
 
-    public Costumer(String name, int age, String ptone) {
+
+    public Costumer(String name, int age, String ptone, Gen gender) {
         this.name = name;
         this.age = age;
-        this.ptone = ptone;
+        this.phone = ptone;
+        this.gender = gender.toString();
+
     }
 
     public String getName() {
@@ -27,19 +32,27 @@ public class Costumer {
         this.age = age;
     }
 
-    public String getPtone() {
-        return ptone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPtone(String phone) {
-        this.ptone = phone;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override
     public String toString() {
         return "Costumer{" + name + ", " +
                 age +
-                ", "  + ptone + '\'' +
-                '}';
+                ", "  + phone +", "+ gender + '\'' +
+                 '}' ;
     }
 }

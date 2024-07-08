@@ -2,7 +2,6 @@ package src.Lesson4.Task2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Market {
     public List<Costumer> costumers;
@@ -11,12 +10,12 @@ public class Market {
 
     public Market() {
         costumers = new ArrayList<>(List.of(
-                new Costumer("Tom", 29, "1111"),
-                new Costumer("Petr", 30, "2222"),
-                new Costumer("Masha", 18, "3333"),
-                new Costumer("Any", 37, "4444"),
-                new Costumer("Michael", 38, "5555"),
-                new Costumer(null, 38, "5555")
+                new Costumer("Tom", 29, "1111", Costumer.Gen.male),
+                new Costumer("Petr", 30, "2222", Costumer.Gen.male),
+                new Costumer("Masha", 18, "3333", Costumer.Gen.famale),
+                new Costumer("Any", 37, "4444",Costumer.Gen.famale),
+                new Costumer("Michael", 38, "5555",Costumer.Gen.male),
+                new Costumer(null, 38, "5555",Costumer.Gen.famale)
         ));
         products = new ArrayList<>(List.of(
                 new Product("Broad", 5),
@@ -37,12 +36,16 @@ public class Market {
         return order.getId();
     }
 
-    public Order addPructToOrder(int orderId, Product product, int quantity)throws ProductException , AmountException{
+    public Order addProductToOrder(int orderId, Product product, int quantity)throws ProductException , AmountException{
         if (product == null || product.getTitle().isEmpty()){ throw new ProductException(" Product not exsist");}
         if (quantity>180 | quantity <0) {throw new AmountException(" quantity Error");}
         Order order = orders.stream().filter(o -> o.getId() == orderId).findFirst().get();
         order.addProduct(product,quantity);
         return order;
+    }
+    public void setOrderPrice (int orderId, int newPrice)
+    {
+        getOrder(orderId).setOrdPrice(newPrice);
     }
 
     public List<Costumer> getCostumers() {
@@ -63,6 +66,10 @@ public class Market {
 
     public List<Order> getOrders() {
         return orders;
+    }
+    public Order getOrder(int orderId) {
+        Order order = orders.stream().filter(o -> o.getId() == orderId).findFirst().get();
+        return order;
     }
 
 }
